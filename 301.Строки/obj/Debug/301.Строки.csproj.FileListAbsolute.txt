@@ -1,0 +1,7 @@
+C:\Users\Student\source\repos\301.Строки\bin\Debug\301.Строки.exe.config
+C:\Users\Student\source\repos\301.Строки\bin\Debug\301.Строки.exe
+C:\Users\Student\source\repos\301.Строки\bin\Debug\301.Строки.pdb
+C:\Users\Student\source\repos\301.Строки\obj\Debug\301.Строки.csproj.AssemblyReference.cache
+C:\Users\Student\source\repos\301.Строки\obj\Debug\301.Строки.csproj.CoreCompileInputs.cache
+C:\Users\Student\source\repos\301.Строки\obj\Debug\301.Строки.exe
+C:\Users\Student\source\repos\301.Строки\obj\Debug\301.Строки.pdb
