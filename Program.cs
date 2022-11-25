@@ -1,107 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using library;
+using System.Globalization;
 
-namespace _301.Практическая_2
+namespace Дата_время
 {
-    class User
-    {
-        public string login = "login", password = "pass", second_name = "Smith", first_name = "John";
-
-        public void Authorize()
-        {
-            Console.WriteLine("Enter your login");
-            string login1 = Console.ReadLine();
-
-            Console.WriteLine("Enter your password");
-            string password1 = Console.ReadLine();
-
-            if (login == login1 && password == password1)
-            {
-                Console.WriteLine($"Your name is - {first_name}\nYour second name is - {second_name}.");
-                Program program = new Program();
-                Person per = new Person();
-                per.Greeting(first_name);
-                program.Middle();
-            }
-            else
-            {
-                Console.WriteLine("Your password or login is wrong. Please enter your password and login again");
-                Authorize2();
-            }
-        }
-        private void Authorize2()
-        {
-            Authorize();
-        }
-    }
-
     class Program
     {
-        static int a, b;
-
-        static void Begin()
-        {
-            Console.WriteLine("Enter 1(+), 2(-), 3(*) or 4(/)");
-            int c = Convert.ToInt32(Console.ReadLine());
-            if (c == 1)
-            {
-                Console.WriteLine("a minus b equals to - " + Plus(a, b));
-            }
-            else if (c == 2)
-            {
-                Console.WriteLine("a minus b equals to - " + Minus(a, b));
-            }
-            else if (c == 3)
-            {
-                Person per = new Person();
-                per.Multiply(a, b);
-                
-            }
-            else if (c == 4)
-            {
-                Person per = new Person();
-                per.Division(a, b);
-            }
-            else
-            {
-                Console.WriteLine("You entered wrong character, please enter 1(+), 2(-), 3(*) or 4(/)");
-                End();
-            }
-        }
-
-        static int Plus(int a, int b)
-        {
-            return a + b;
-        }
-
-        static int Minus(int a, int b)
-        {
-            return a - b;
-        }
-
-        static void End() 
-        {
-            Begin();
-        }
-
-        public void Middle()
-        {
-            Console.WriteLine($"Enter the number - ");
-            a = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine($"Enter the number - ");
-            b = Convert.ToInt32(Console.ReadLine());
-
-            Begin();
-        }
         static void Main(string[] args)
         {
-            User user = new User();
-            user.Authorize();
+            //ParseExact
+            string date = "05112022";
+            DateTime dt = DateTime.ParseExact(date, "ddMMyyyy", CultureInfo.InvariantCulture);
+
+            //Parse
+            int a = int.Parse("230");
+            double b = double.Parse("238,569");
+            decimal c = decimal.Parse("124,457");
+            byte d = byte.Parse("4");
+            Console.WriteLine($"a={a} b={b} c={c} d={d}");
+
+            //TryParse
+            Console.WriteLine("Введите строку:");
+            string input = Console.ReadLine();
+
+            bool result = int.TryParse(input, out var number);
+            if (result == true)
+                Console.WriteLine($"Преобразование прошло успешно. Число: {number}");
+            else
+                Console.WriteLine("Преобразование завершилось неудачно");
+            CultureInfo enUS = new CultureInfo("en-US");
+            string dateString;
+            DateTime dateValue;
+
+            //TryParseExact
+            dateString = " 5/01/2009 8:30 AM";
+            if (DateTime.TryParseExact(dateString, "g", enUS,
+            DateTimeStyles.None, out dateValue))
+                Console.WriteLine("Converted '{0}' to {1} ({2}).", dateString, dateValue,
+                dateValue.Kind);
+            else
+                Console.WriteLine("'{0}' не приемлемый формат.", dateString);
         }
+
     }
 }
+
